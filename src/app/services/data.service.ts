@@ -16,15 +16,21 @@ export class DataService {
       .get<Object>(`${this.CATEGORY_URL}`) // TODO Enveler "any"
       .pipe(
         map((obj) => {
-          let pouet: Category[] = [];
+          
           console.log(obj);
-          debugger;
-          // if(obj['trivia_categories']) {
+          // obj.
+          const prop: string[] = Object.getOwnPropertyNames(obj);
 
-          //   this._mapCategory(obj['trivia_categories']);
-          // }
-          // // pouet = obj['trivia_categories'] as Category[]; // TODO
-          return pouet;
+          if (prop.length === 1) {
+            console.log('visdrdgmjo');
+
+            //   this._mapCategory(obj['trivia_categories']);
+            // pouet = obj.trivia_categories as Category[]; // TODO
+            let pouet = obj[prop[0]]; // TODO
+          }
+          console.log('viscsqvcsdrdgmjo');
+          // return pouet;
+          return [];
         })
       );
   }
