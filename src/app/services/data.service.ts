@@ -13,16 +13,25 @@ export class DataService {
 
   public getCategory(): Observable<Category[]> {
     return this._httpClient
-      .get<string>(`${this.CATEGORY_URL}`) // TODO Enveler "any"
+      .get<Object>(`${this.CATEGORY_URL}`) // TODO Enveler "any"
       .pipe(
         map((obj) => {
           let pouet: Category[] = [];
           console.log(obj);
-          pouet = obj['trivia_categories'] as Category[]; // TODO
+          debugger;
+          // if(obj['trivia_categories']) {
+
+          //   this._mapCategory(obj['trivia_categories']);
+          // }
+          // // pouet = obj['trivia_categories'] as Category[]; // TODO
           return pouet;
         })
       );
   }
+  // private _mapCategory(obj): Category[] {
+  //   console.log(obj);
+  //   return [];
+  // }
 
   // private _mapAisBase(src: AisBase[]): AisBase[] {
   //   const clones: AisBase[] = [];
