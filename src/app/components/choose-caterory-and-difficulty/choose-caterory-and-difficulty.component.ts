@@ -11,12 +11,15 @@ import { DataService } from '../../services/data.service';
 export class ChooseCateroryAndDifficultyComponent implements OnInit {
   categories$: Observable<Category[]> = this._dataService.getCategory();
 
+  readonly difficultyLevels = ['Easy', 'Medium', 'Hard'];
+
   constructor(private _dataService: DataService) {}
 
-  ngOnInit() {
-    console.log('coucou');
-    this.categories$ = this._dataService.getCategory();
+  ngOnInit() {}
 
-    this.categories$.subscribe((pouet) => console.log(pouet));
+  onClick() {
+    // console.log(document.getElementById('difficultySelect')?.value);
+    // console.log(document.getElementById("categorySelect")?.value);
+    // console.log('click');
   }
 }
