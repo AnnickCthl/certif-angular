@@ -16,5 +16,7 @@ export class ChooseCateroryAndDifficultyComponent implements OnInit {
   ngOnInit() {
     console.log('coucou');
     this.categories$ = this._dataService.getCategory();
+
+    this.categories$.subscribe((pouet) => console.log(pouet));
   }
 }

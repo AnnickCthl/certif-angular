@@ -16,8 +16,9 @@ export class DataService {
       .get<string>(`${this.CATEGORY_URL}`) // TODO Enveler "any"
       .pipe(
         map((obj) => {
-          const pouet: Category[] = [];
+          let pouet: Category[] = [];
           console.log(obj);
+          pouet = obj['trivia_categories'] as Category[]; // TODO
           return pouet;
         })
       );
