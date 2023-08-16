@@ -8,11 +8,7 @@
       }}</label>
       <br />
 
-      <input
-        matInput
-        formControlName="{{ index }}"
-        class="visibility: hidden;"
-      />
+      <input formControlName="{{ index }}" style="visibility: hidden;" />
       <ng-container *ngFor="let answer of question.allAnswers">
         <br />
         <button
@@ -27,12 +23,5 @@
     <br />
   </ng-container>
 
-  <button
-    type="submit"
-    id="submitBtn"
-    class="btn btn-default"
-    *ngIf="formQuizz.valid"
-  >
-    Submit
-  </button>
+  <button type="submit" id="submitBtn" *ngIf="formQuizz.valid">Submit</button>
 </form>

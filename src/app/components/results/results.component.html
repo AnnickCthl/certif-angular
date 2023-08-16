@@ -9,10 +9,11 @@
     <ng-container *ngFor="let answer of question.allAnswers">
       <br />
       <button
+        disabled
         type="button"
         class="{{
           answer | answerColor: question.correctAnswer:userAnswers[index]
-        }}"
+        }} black-text"
       >
         {{ answer | toText }}
       </button>
@@ -25,11 +26,6 @@
   {{ 'You scored ' + getNumberOfCorrectAwswers() + ' out of 5.' }}
 </p>
 <br />
-<button
-  type="submit"
-  (click)="onNavBack()"
-  id="navigateBtn"
-  class="btn btn-default"
->
+<button type="submit" (click)="onNavBack()" #navigateBtn>
   Take another test
 </button>

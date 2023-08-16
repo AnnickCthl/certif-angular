@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Quizz } from '../../models/quizz';
@@ -10,32 +10,27 @@ import { DataService } from '../../services/data.service';
   templateUrl: './choose-category-and-difficulty.component.html',
   styleUrls: ['./choose-category-and-difficulty.component.css'],
 })
-export class ChooseCategoryAndDifficultyComponent implements OnInit, OnDestroy {
-  categories$: Observable<Category[]> = this._dataService.getCategory();
-  fiveQuestionQuizz: Quizz[] = [];
+export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
+  public categories$: Observable<Category[]> = this._dataService.getCategory();
+  public fiveQuestionQuizz: Quizz[] = [];
 
-  form: FormGroup = new FormGroup({
-    category: new FormControl('', Validators.required),
-    difficulty: new FormControl('', Validators.required),
+  public form: FormGroup = new FormGroup({
+    category: new FormControl(null, Validators.required),
+    difficulty: new FormControl(null, Validators.required),
   });
 
-  readonly difficultyLevels = ['Easy', 'Medium', 'Hard'];
+  public readonly DIFFICULTY_LEVELS = ['Easy', 'Medium', 'Hard'];
 
   private _destroy$ = new Subject();
 
-  constructor(private _dataService: DataService) {}
+  public constructor(private _dataService: DataService) {}
 
-  ngOnInit() {
-    // ToDO si le temps => Validators
-  }
-
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this._destroy$.next(null);
     this._destroy$.complete();
   }
 
-  onClickSubmit(category: string, difficulty: string) {
-    // TODO Validators
+  public onClickSubmit(category: string, difficulty: string) {
     this._dataService
       .getQuizzTest(category, difficulty.toLocaleLowerCase())
       .pipe(takeUntil(this._destroy$))

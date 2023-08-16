@@ -30,20 +30,13 @@
       formControlName="difficulty"
       required
     >
-      <option *ngFor="let difficulty of difficultyLevels" [value]="difficulty">
+      <option *ngFor="let difficulty of DIFFICULTY_LEVELS" [value]="difficulty">
         {{ difficulty }}
       </option>
     </select>
   </div>
   <br />
-  <button
-    type="submit"
-    #createBtn
-    [disabled]="!form.valid"
-    class="btn btn-default"
-  >
-    Create
-  </button>
+  <button type="submit" #createBtn [disabled]="!form.valid">Create</button>
 </form>
 
 <app-five-questions-quizz

@@ -19,15 +19,15 @@ export class DataService {
     const categoryUrl: string = this.BASE_URL + 'api_category.php';
 
     return this._httpClient.get<GenericObject<Category[]>>(categoryUrl).pipe(
-      map((obj) => {
-        const prop: string[] = Object.getOwnPropertyNames(obj);
-
-        if (prop.length === 1) {
-          let categories = obj[prop[0]]; // TODO
-
-          return categories;
+      map((response) => {
+        if (response && response['trivia_categories']) {
+          return response['trivia_categories'];
         }
 
+        return [];
+      }),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
         return [];
       })
     );

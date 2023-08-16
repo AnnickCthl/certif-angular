@@ -11,12 +11,12 @@ import { Quizz } from '../../models/quizz';
 export class FiveQuestionsQuizzComponent implements OnInit {
   @Input() public fiveQuestionQuizz: Quizz[] = [];
 
-  formQuizz: FormGroup = new FormGroup({});
-  backgroundButtonColor: string = '';
+  public formQuizz: FormGroup = new FormGroup({});
+  public backgroundButtonColor: string = '';
 
-  constructor(private _router: Router) {}
+  public constructor(private _router: Router) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     if (this.fiveQuestionQuizz) {
       this.fiveQuestionQuizz.forEach((quizz, index) => {
         this.formQuizz.addControl(
@@ -27,25 +27,20 @@ export class FiveQuestionsQuizzComponent implements OnInit {
     }
   }
 
-  onClickSubmit(formQuizz: FormGroup) {
-    const state = {
-      quizz: this.fiveQuestionQuizz,
-      answers: formQuizz.getRawValue(),
-    };
-
+  public onClickSubmit(formQuizz: FormGroup) {
     this._router.navigateByUrl('/results', {
-      state: state,
+      state: {
+        quizz: this.fiveQuestionQuizz,
+        answers: formQuizz.getRawValue(),
+      },
     });
   }
 
-  onAnwserClick(answer: string, index: number) {
+  public onAnwserClick(answer: string, index: number) {
     this.formQuizz.get(index.toString())?.patchValue(answer);
   }
 
-  isSelected(answer: string, index: number): boolean {
+  public isSelected(answer: string, index: number): boolean {
     return this.formQuizz.get(index.toString())?.value === answer;
   }
 }
-
-// TODO Cacher l'input
-// Encodage des réponses

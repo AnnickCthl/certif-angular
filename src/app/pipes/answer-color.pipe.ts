@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-// Todo rename
 @Pipe({
   name: 'answerColor',
 })

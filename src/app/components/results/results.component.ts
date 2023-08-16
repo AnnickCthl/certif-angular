@@ -26,6 +26,4 @@ export class ResultsComponent {
   onNavBack(): void {
     this._router.navigate(['']);
   }
-
-  // TODO désactiver les boutons
 }
