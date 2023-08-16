@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Quizz } from '../../models/quizz';
 
@@ -7,33 +7,25 @@ import { Quizz } from '../../models/quizz';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
   answeredFrom: Quizz[] = [];
   userAnswers: string[] = [];
 
   constructor(private _router: Router) {
-    const pouet = this._router.getCurrentNavigation()?.extras.state;
-    this.answeredFrom = Object.values(pouet?.quizz);
-    this.userAnswers = Object.values(pouet?.answers);
-
-    if (
-      this.userAnswers &&
-      this.userAnswers.length &&
-      this.answeredFrom &&
-      this.userAnswers.length === this.answeredFrom.length
-    ) {
-      const pouet = this.userAnswers.filter((ans: string, index: number) => {
-        return ans === this.answeredFrom[index].correct_answer;
-      });
-      console.log(pouet);
-    }
+    const data = this._router.getCurrentNavigation()?.extras.state;
+    this.answeredFrom = Object.values(data?.quizz);
+    this.userAnswers = Object.values(data?.answers);
   }
-
-  ngOnInit() {}
 
   getNumberOfCorrectAwswers(): number {
     return this.userAnswers.filter((ans: string, index: number) => {
       return ans === this.answeredFrom[index].correct_answer;
     }).length;
   }
+
+  onNavBack(): void {
+    this._router.navigate(['']);
+  }
+
+  // TODO désactiver les boutons
 }

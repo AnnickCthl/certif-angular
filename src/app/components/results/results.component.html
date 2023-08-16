@@ -19,6 +19,15 @@
   <br />
 </ng-container>
 
-<p class="red-color">
-  {{ 'You scored ' + getNumberOfCorrectAwswers() + 'out of 5.' }}
+<p class="{{ getNumberOfCorrectAwswers() | color }}">
+  {{ 'You scored ' + getNumberOfCorrectAwswers() + ' out of 5.' }}
 </p>
+<br />
+<button
+  type="submit"
+  (click)="onNavBack()"
+  id="navigateBtn"
+  class="btn btn-default"
+>
+  Take another test
+</button>
