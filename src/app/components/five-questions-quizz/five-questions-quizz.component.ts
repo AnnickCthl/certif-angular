@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Quizz } from '../../models/quizz';
 
 @Component({
@@ -10,13 +10,7 @@ import { Quizz } from '../../models/quizz';
 export class FiveQuestionsQuizzComponent implements OnInit {
   @Input() public fiveQuestionQuizz: Quizz[] = [];
 
-  formQuizz: FormGroup = new FormGroup({
-    questionOne: new FormControl(''),
-    questionTwo: new FormControl(''),
-    questionThree: new FormControl(''),
-    questionFour: new FormControl(''),
-    questionFive: new FormControl(''),
-  });
+  formQuizz: FormGroup = new FormGroup({});
 
   constructor() {}
 

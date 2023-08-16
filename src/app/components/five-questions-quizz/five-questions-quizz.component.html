@@ -1,21 +1,28 @@
-<!-- <form #typeOfForm [formGroup]="formQuizz" (ngSubmit)="onClickSubmit(formQuizz)">
-  <div class="form-group">
-    <label for="questionOne">Question 1</label>
-    <select
-      class="form-control"
-      #questionOne
-      formControlName="questionOne"
-      required
-    >
-      <option
-        *ngFor="let question of fiveQuestionQuizz"
-        [value]="question.all_answers"
-      >
-        {{ category.all_answers }}
-      </option>
-    </select>
-  </div>
+<br />
 
-  <button type="submit" id="submitBtn" class="btn btn-default">Create</button>
-</form> -->
+<form #typeOfForm [formGroup]="formQuizz" (ngSubmit)="onClickSubmit(formQuizz)">
+  <ng-container *ngFor="let question of fiveQuestionQuizz">
+    <div class="form-group">
+      <label for="{{ question.question }}">{{ question.question }}</label>
+      <br />
+
+      <ng-container *ngFor="let answer of question.all_answers">
+        <!-- <select
+          class="form-control"
+          formControlName="question.question"
+          required
+        >
+           <option *ngFor="let answer of question.all_answers" [value]="answer">
+            {{ answer }}
+          </option> 
+        </select> -->
+        <br />
+        <button>{{ answer }}</button>
+      </ng-container>
+    </div>
+    <br />
+  </ng-container>
+
+  <button type="submit" id="submitBtn" class="btn btn-default">Submit</button>
+</form>
 pouet

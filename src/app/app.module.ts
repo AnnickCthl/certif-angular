@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChooseCategoryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-category-and-difficulty.component';
 import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/five-questions-quizz.component';
+import { ButtonClickedPipeModule } from './components/five-questions-quizz/pipes/button-clicked.pipe.module';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,9 @@ import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/f
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+
+    // Pipes
+    ButtonClickedPipeModule,
   ],
   declarations: [
     // Components
