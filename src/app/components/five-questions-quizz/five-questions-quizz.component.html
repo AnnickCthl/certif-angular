@@ -3,7 +3,9 @@
 <form #typeOfForm [formGroup]="formQuizz" (ngSubmit)="onClickSubmit(formQuizz)">
   <ng-container *ngFor="let question of fiveQuestionQuizz; let index = index">
     <div class="form-group">
-      <label for="{{ question.question }}">{{ question.question }}</label>
+      <label for="{{ question.question }}">{{
+        question.question | toText
+      }}</label>
       <br />
 
       <input
@@ -18,7 +20,7 @@
           (click)="onAnwserClick(answer, index)"
           class="{{ isSelected(answer, index) ? 'select-color' : '' }}"
         >
-          {{ answer }}
+          {{ answer | toText }}
         </button>
       </ng-container>
     </div>

@@ -2,7 +2,9 @@
 
 <ng-container *ngFor="let question of answeredFrom; let index = index">
   <div class="form-group">
-    <label for="{{ question.question }}">{{ question.question }}</label>
+    <label for="{{ question.question }}">{{
+      question.question | toText
+    }}</label>
     <br />
     <ng-container *ngFor="let answer of question.allAnswers">
       <br />
@@ -12,7 +14,7 @@
           answer | answerColor: question.correctAnswer:userAnswers[index]
         }}"
       >
-        {{ answer }}
+        {{ answer | toText }}
       </button>
     </ng-container>
   </div>

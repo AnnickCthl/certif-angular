@@ -16,7 +16,7 @@
       required
     >
       <option *ngFor="let category of categories" [value]="category.id">
-        {{ category.name }}
+        {{ category.name | toText }}
       </option>
     </select>
   </div>

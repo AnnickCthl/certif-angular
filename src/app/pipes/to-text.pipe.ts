@@ -5,6 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ToTextPipe implements PipeTransform {
   transform(text: string): string {
-    return '';
+    const txt = document.createElement('textarea');
+    txt.innerHTML = text;
+    return txt.value;
   }
 }
