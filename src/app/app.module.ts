@@ -10,6 +10,7 @@ import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/f
 import { ToStringPipeModule } from './components/five-questions-quizz/pipes/to-string/to-string.module';
 import { ButtonClickedPipeModule } from './components/five-questions-quizz/pipes/button-clicked/button-clicked.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     ChooseCategoryAndDifficultyComponent,
     FiveQuestionsQuizzComponent,
+    ResultsComponent,
   ],
   bootstrap: [AppComponent],
 })

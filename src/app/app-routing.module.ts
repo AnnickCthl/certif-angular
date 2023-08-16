@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ChooseCategoryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-category-and-difficulty.component';
-import { ResultsComponent } from './components/results/results.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ChooseCategoryAndDifficultyComponent,
-    children: [
-      {
-        path: 'results',
-        component: ResultsComponent,
-      },
-    ],
   },
 ];
 
