@@ -1,7 +1,5 @@
 <br />
 
-<ng-container *ngFor="let question of answeredFrom; let index = index">
-  <div class="form-group">
     <label for="{{ question.question }}">{{
       question.question | toText
     }}</label>
@@ -18,11 +16,11 @@
         {{ answer | toText }}
       </button>
     </ng-container>
-  </div>
+
   <br />
 </ng-container>
 
-<p class="{{ getNumberOfCorrectAwswers() | color }}">
+<p class="{{ getNumberOfCorrectAwswers() | messageColor }}">
   {{ 'You scored ' + getNumberOfCorrectAwswers() + ' out of 5.' }}
 </p>
 <br />

@@ -8,7 +8,6 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-choose-category-and-difficulty',
   templateUrl: './choose-category-and-difficulty.component.html',
-  styleUrls: ['./choose-category-and-difficulty.component.css'],
 })
 export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
   public categories$: Observable<Category[]> = this._dataService.getCategory();

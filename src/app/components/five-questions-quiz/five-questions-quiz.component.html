@@ -2,7 +2,6 @@
 
 <form #typeOfForm [formGroup]="formQuiz" (ngSubmit)="onClickSubmit(formQuiz)">
   <ng-container *ngFor="let question of fiveQuestionQuiz; let index = index">
-    <div class="form-group">
       <label for="{{ question.question }}">{{
         question.question | toText
       }}</label>
@@ -21,7 +20,6 @@
           {{ answer | toText }}
         </button>
       </ng-container>
-    </div>
     <br />
   </ng-container>
 

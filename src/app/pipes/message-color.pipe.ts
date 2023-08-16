@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'color',
+  name: 'messageColor',
 })
-export class ColorPipe implements PipeTransform {
+export class MessageColorPipe implements PipeTransform {
   transform(value: number): string {
     if (value < 2) {
       return 'red-color';

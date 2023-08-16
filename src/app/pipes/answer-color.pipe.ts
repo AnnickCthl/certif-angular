@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'answerColor',
 })
 // TODO TU
+// TODO Directive
 export class AnswerColorPipe implements PipeTransform {
   transform(answer: string, correctAnswer: string, userAnswer: string): string {
     if (answer === correctAnswer) {
