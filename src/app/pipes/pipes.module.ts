@@ -5,4 +5,4 @@ import { ButtonClickedPipe } from './button-clicked.pipe';
   exports: [ButtonClickedPipe],
   declarations: [ButtonClickedPipe],
 })
-export class ButtonClickedPipeModule {}
+export class PipesModule {}

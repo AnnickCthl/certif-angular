@@ -9,8 +9,8 @@ import { ChooseCategoryAndDifficultyComponent } from './components/choose-catego
 import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/five-questions-quizz.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './components/results/results.component';
-import { ButtonClickedPipeModule } from './pipes/button-clicked/button-clicked.module';
 import { ToStringPipeModule } from './pipes/to-string/to-string.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { ToStringPipeModule } from './pipes/to-string/to-string.module';
     ReactiveFormsModule,
 
     // Pipes
-    ButtonClickedPipeModule,
+    PipesModule,
     ToStringPipeModule,
 
     AppRoutingModule,
