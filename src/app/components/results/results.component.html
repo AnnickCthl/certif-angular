@@ -1,5 +1,6 @@
-<br />
+<h1>Results</h1>
 <ng-container *ngFor="let question of answeredFrom; let index = index">
+  <br />
   <label for="{{ question.question }}">{{ question.question | toText }}</label>
   <br />
   <ng-container *ngFor="let answer of question.allAnswers">
@@ -14,12 +15,10 @@
       {{ answer | toText }}
     </button>
   </ng-container>
-
   <br />
 </ng-container>
 
 <p class="{{ getNumberOfCorrectAwswers() | messageColor }}">
   {{ 'You scored ' + getNumberOfCorrectAwswers() + ' out of 5.' }}
 </p>
-<br />
 <button type="submit" (click)="onNavBack()">Take another test</button>

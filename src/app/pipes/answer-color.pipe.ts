@@ -3,10 +3,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'answerColor',
 })
-// TODO TU
 // TODO Directive
 export class AnswerColorPipe implements PipeTransform {
-  transform(answer: string, correctAnswer: string, userAnswer: string): string {
+  public transform(
+    answer: string,
+    correctAnswer: string,
+    userAnswer: string
+  ): string {
     if (answer === correctAnswer) {
       return 'green-color';
     }

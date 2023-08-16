@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'messageColor',
 })
 export class MessageColorPipe implements PipeTransform {
-  transform(value: number): string {
+  public transform(value: number): string {
     if (value < 2) {
       return 'red-color';
     } else if (value < 4) {

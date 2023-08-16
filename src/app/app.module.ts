@@ -10,6 +10,7 @@ import { FiveQuestionsQuizComponent } from './components/five-questions-quiz/fiv
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './components/results/results.component';
 import { PipesModule } from './pipes/pipes.module';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   imports: [
@@ -28,6 +29,8 @@ import { PipesModule } from './pipes/pipes.module';
     ChooseCategoryAndDifficultyComponent,
     FiveQuestionsQuizComponent,
     ResultsComponent,
+
+    HighlightDirective,
   ],
   bootstrap: [AppComponent],
 })
