@@ -61,7 +61,10 @@ export class DataService {
                 correct_answer: quizz.correct_answer,
                 incorrect_answers: quizz.incorrect_answers,
                 question: quizz.question,
-                all_answers: [...quizz.incorrect_answers, quizz.correct_answer],
+                all_answers: this._shuffleArray([
+                  ...quizz.incorrect_answers,
+                  quizz.correct_answer,
+                ]),
               });
             });
 
@@ -76,11 +79,12 @@ export class DataService {
       );
   }
 
-  private _shuffleArray(array: string[]) {
+  private _shuffleArray(array: string[]): string[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
   }
 
   // TODO voir pour utiliser les PArtial tout ça tout ça
