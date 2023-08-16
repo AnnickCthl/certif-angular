@@ -6,17 +6,12 @@
       <label for="{{ question.question }}">{{ question.question }}</label>
       <br />
 
-      <input matInput formControlName="{{ index | toString }}" />
+      <input
+        matInput
+        formControlName="{{ index | toString }}"
+        class="visibility: hidden;"
+      />
       <ng-container *ngFor="let answer of question.all_answers">
-        <!-- <select
-          class="form-control"
-          formControlName="question.question"
-          required
-        >
-           <option *ngFor="let answer of question.all_answers" [value]="answer">
-            {{ answer }}
-          </option> 
-        </select> -->
         <br />
         <button
           (click)="onAnwserClick(answer, index)"
@@ -29,6 +24,12 @@
     <br />
   </ng-container>
 
-  <button type="submit" id="submitBtn" class="btn btn-default">Submit</button>
+  <button
+    type="submit"
+    id="submitBtn"
+    class="btn btn-default"
+    *ngIf="formQuizz.valid"
+  >
+    Submit
+  </button>
 </form>
-pouet

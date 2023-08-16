@@ -18,7 +18,10 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   ngOnInit() {
     if (this.fiveQuestionQuizz) {
       this.fiveQuestionQuizz.forEach((quizz, index) => {
-        this.formQuizz.addControl(index.toString(), new FormControl({}));
+        this.formQuizz.addControl(
+          index.toString(),
+          new FormControl(null, Validators.required)
+        );
       });
     }
     // Déplacer
@@ -33,9 +36,8 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   }
 
   isSelected(answer: string, index: number): boolean {
-    this.formQuizz.get(index.toString())?.value;
-    // debugger;
-     return this.formQuizz.get(index.toString())?.value === answer
-    // return true;
+    return this.formQuizz.get(index.toString())?.value === answer;
   }
 }
+
+// TODO Cacher l'input

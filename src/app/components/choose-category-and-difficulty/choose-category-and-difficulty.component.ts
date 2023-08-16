@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Quizz } from '../../models/quizz';
 import { Category } from '../../models/category';
@@ -15,8 +15,8 @@ export class ChooseCategoryAndDifficultyComponent implements OnInit, OnDestroy {
   fiveQuestionQuizz: Quizz[] = [];
 
   form: FormGroup = new FormGroup({
-    category: new FormControl(''),
-    difficulty: new FormControl(''),
+    category: new FormControl('', Validators.required),
+    difficulty: new FormControl('', Validators.required),
   });
 
   readonly difficultyLevels = ['Easy', 'Medium', 'Hard'];
