@@ -14,6 +14,7 @@
       <ng-container *ngFor="let answer of question.all_answers">
         <br />
         <button
+          type="button"
           (click)="onAnwserClick(answer, index)"
           class="{{ isSelected(answer, index) ? 'select-color' : '' }}"
         >
