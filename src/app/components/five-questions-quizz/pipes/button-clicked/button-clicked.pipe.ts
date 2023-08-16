@@ -6,7 +6,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class ButtonClickedPipe implements PipeTransform {
   transform(answer: string, question: number, formQuizz: FormGroup): string {
-    debugger;
-    return 'select-color';
+    const formValues = Object.values(formQuizz.getRawValue());
+
+    return formValues[question] === answer ? 'select-color' : '';
   }
 }

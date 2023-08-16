@@ -17,8 +17,8 @@ export class FiveQuestionsQuizzComponent implements OnInit {
 
   ngOnInit() {
     if (this.fiveQuestionQuizz) {
-      this.fiveQuestionQuizz.forEach((quizz) => {
-        this.formQuizz.addControl(quizz.question, new FormControl({}));
+      this.fiveQuestionQuizz.forEach((quizz, index) => {
+        this.formQuizz.addControl(index.toString(), new FormControl({}));
       });
     }
     // Déplacer
@@ -39,5 +39,10 @@ export class FiveQuestionsQuizzComponent implements OnInit {
     // }
   }
 
-  buildSelection(fiveQuestion: FormGroup) {}
+  isSelected(answer: string, index: number): boolean {
+    this.formQuizz.get(index.toString());
+
+    // return formValues[question] === answer
+    true
+  }
 }
