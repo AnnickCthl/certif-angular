@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 // Todo rename
 @Pipe({

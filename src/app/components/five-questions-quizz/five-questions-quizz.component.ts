@@ -25,24 +25,14 @@ export class FiveQuestionsQuizzComponent implements OnInit {
         );
       });
     }
-    // Déplacer
   }
 
   onClickSubmit(formQuizz: FormGroup) {
-    const coucou = formQuizz.getRawValue();
-
-    console.log(coucou);
-
     const state = {
       quizz: this.fiveQuestionQuizz,
       answers: formQuizz.getRawValue(),
     };
 
-    console.log(state);
-
-    // this._router.navigate(['results'], {
-    //   state: state,
-    // });
     this._router.navigateByUrl('/results', {
       state: state,
     });
