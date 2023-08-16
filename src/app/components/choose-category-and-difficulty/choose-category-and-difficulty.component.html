@@ -7,6 +7,7 @@
 >
   <div class="form-group" *ngIf="categories$ | async as categories">
     <label for="categorySelect">Select Category</label>
+    <br />
     <select
       class="form-control"
       #categorySelect
@@ -21,6 +22,7 @@
 
   <div class="form-group">
     <label for="difficultySelect">Select Difficulty</label>
+    <br />
     <select
       class="form-control"
       id="difficultySelect"
@@ -32,7 +34,7 @@
       </option>
     </select>
   </div>
-
+  <br />
   <button type="submit" id="createBtn" class="btn btn-default">Create</button>
 </form>
 

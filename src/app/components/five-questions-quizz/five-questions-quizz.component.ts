@@ -29,8 +29,19 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   }
 
   onClickSubmit(formQuizz: FormGroup) {
-    this._router.navigate(['results']);
-    // TODO
+    const state = {
+      quizz: this.fiveQuestionQuizz,
+      answers: formQuizz.getRawValue(),
+    };
+
+    console.log(state);
+
+    // this._router.navigate(['results'], {
+    //   state: state,
+    // });
+    this._router.navigateByUrl('/results', {
+      state: state,
+    });
   }
 
   onAnwserClick(answer: string, index: number) {
