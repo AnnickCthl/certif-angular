@@ -5,11 +5,11 @@ import { Category } from '../../models/category';
 import { DataService } from '../../services/data.service';
 
 @Component({
-  selector: 'app-choose-caterory-and-difficulty',
-  templateUrl: './choose-caterory-and-difficulty.component.html',
-  styleUrls: ['./choose-caterory-and-difficulty.component.css'],
+  selector: 'app-choose-category-and-difficulty',
+  templateUrl: './choose-category-and-difficulty.component.html',
+  styleUrls: ['./choose-category-and-difficulty.component.css'],
 })
-export class ChooseCateroryAndDifficultyComponent implements OnInit {
+export class ChooseCategoryAndDifficultyComponent implements OnInit {
   categories$: Observable<Category[]> = this._dataService.getCategory();
 
   form: FormGroup = new FormGroup({
