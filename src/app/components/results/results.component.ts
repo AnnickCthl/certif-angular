@@ -13,19 +13,27 @@ export class ResultsComponent implements OnInit {
 
   constructor(private _router: Router) {
     const pouet = this._router.getCurrentNavigation()?.extras.state;
-    this.answeredFrom = pouet?.quizz;
-    this.userAnswers = pouet?.answers;
-    console.log(pouet);
+    this.answeredFrom = Object.values(pouet?.quizz);
+    this.userAnswers = Object.values(pouet?.answers);
 
-    // this.userAnswers.filter(
-    //   (ans, index) => ans === this.answeredFrom[index].correct_answer
-    // );
-    // console.log(
-    //   this.userAnswers.filter(
-    //     (ans, index) => ans === this.answeredFrom[index].correct_answer
-    //   )
-    // );
+    if (
+      this.userAnswers &&
+      this.userAnswers.length &&
+      this.answeredFrom &&
+      this.userAnswers.length === this.answeredFrom.length
+    ) {
+      const pouet = this.userAnswers.filter((ans: string, index: number) => {
+        return ans === this.answeredFrom[index].correct_answer;
+      });
+      console.log(pouet);
+    }
   }
 
   ngOnInit() {}
+
+  getNumberOfCorrectAwswers(): number {
+    return this.userAnswers.filter((ans: string, index: number) => {
+      return ans === this.answeredFrom[index].correct_answer;
+    }).length;
+  }
 }
