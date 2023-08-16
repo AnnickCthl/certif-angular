@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { Category } from '../models/category';
 import { Quizz } from '../models/quizz';
+import { RawQuizz } from '../models/raw/raw-quizz';
 
 export type GenericObject<T> = { [key: string]: T };
-export type GenericAny<T> = T | T[] | GenericObject<T>;
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +33,7 @@ export class DataService {
     );
   }
 
-  public getFiveQuizzTest(
+  public getQuizzTest(
     category: string,
     difficulty: string
   ): Observable<Quizz[]> {
@@ -46,37 +46,32 @@ export class DataService {
       '&type=multiple';
     console.log(quizzUrl);
 
-    return this._httpClient
-      .get<any>(quizzUrl) // TODO Enveler "any"
+    return this._httpClient.get<GenericObject<RawQuizz[]>>(quizzUrl).pipe(
+      map((response) => {
+        if (response && response['results']) {
+          const results = response['results'] as RawQuizz[];
+          const mapped: Quizz[] = [];
 
-      .pipe(
-        map((response) => {
-          console.log(response);
-          if (response && response['results']) {
-            const pouet = response['results'] as Quizz[];
-            const mapped: Quizz[] = [];
-
-            pouet.forEach((quizz: Quizz) => {
-              mapped.push({
-                correct_answer: quizz.correct_answer,
-                incorrect_answers: quizz.incorrect_answers,
-                question: quizz.question,
-                all_answers: this._shuffleArray([
-                  ...quizz.incorrect_answers,
-                  quizz.correct_answer,
-                ]),
-              });
+          results.forEach((quizz: RawQuizz) => {
+            mapped.push({
+              correctAnswer: quizz.correct_answer,
+              question: quizz.question,
+              allAnswers: this._shuffleArray([
+                ...quizz.incorrect_answers,
+                quizz.correct_answer,
+              ]),
             });
+          });
 
-            return mapped;
-          }
-          return [];
-        }),
-        catchError((error: HttpErrorResponse) => {
-          console.error(error);
-          return [];
-        })
-      );
+          return mapped;
+        }
+        return [];
+      }),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return [];
+      })
+    );
   }
 
   private _shuffleArray(array: string[]): string[] {
@@ -86,8 +81,4 @@ export class DataService {
     }
     return array;
   }
-
-  // TODO voir pour utiliser les PArtial tout ça tout ça
-  // TODO gestion d'erreur
-  // DTO renaming
 }

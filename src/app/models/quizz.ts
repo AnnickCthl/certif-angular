@@ -1,6 +1,5 @@
 export interface Quizz {
-  correct_answer: string;
-  incorrect_answers: string[];
+  correctAnswer: string;
   question: string;
-  all_answers: string[];
+  allAnswers: string[];
 }
