@@ -33,34 +33,54 @@ export class DataService {
     );
   }
 
-  public getFiveQuizzTest(/*category: string, difficulty: string*/): Observable<
-    Quizz[]
-  > {
+  public getFiveQuizzTest(
+    category: string,
+    difficulty: string
+  ): Observable<Quizz[]> {
     const quizzUrl: string =
       this.BASE_URL +
-      'api.php?amount=5&category=11&difficulty=easy&type=multiple';
+      'api.php?amount=5&category=' +
+      category +
+      '&difficulty=' +
+      difficulty +
+      '&type=multiple';
     console.log(quizzUrl);
 
-    return (
-      this._httpClient
-        // .get<any>(quizzUrl) // TODO Enveler "any"
-        .get<any>(
-          'https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple'
-        )
-        .pipe(
-          map((obj) => {
-            console.log(obj);
+    return this._httpClient
+      .get<any>(quizzUrl) // TODO Enveler "any"
 
-            return [];
-          }),
-          catchError((error: HttpErrorResponse) => {
-            console.error(error);
-            return [];
-          })
-        )
-    );
+      .pipe(
+        map((response) => {
+          console.log(response);
+          if (response && response['results']) {
+            const pouet = response['results'] as Quizz[];
+            const mapped: Quizz[] = [];
 
-    // https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple
+            pouet.forEach((quizz: Quizz) => {
+              mapped.push({
+                correct_answer: quizz.correct_answer,
+                incorrect_answers: quizz.incorrect_answers,
+                question: quizz.question,
+                all_answers: [...quizz.incorrect_answers, quizz.correct_answer],
+              });
+            });
+
+            return mapped;
+          }
+          return [];
+        }),
+        catchError((error: HttpErrorResponse) => {
+          console.error(error);
+          return [];
+        })
+      );
+  }
+
+  private _shuffleArray(array: string[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 
   // TODO voir pour utiliser les PArtial tout ça tout ça
