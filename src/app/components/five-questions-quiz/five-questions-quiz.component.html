@@ -1,7 +1,7 @@
 <br />
 
-<form #typeOfForm [formGroup]="formQuizz" (ngSubmit)="onClickSubmit(formQuizz)">
-  <ng-container *ngFor="let question of fiveQuestionQuizz; let index = index">
+<form #typeOfForm [formGroup]="formQuiz" (ngSubmit)="onClickSubmit(formQuiz)">
+  <ng-container *ngFor="let question of fiveQuestionQuiz; let index = index">
     <div class="form-group">
       <label for="{{ question.question }}">{{
         question.question | toText
@@ -25,5 +25,5 @@
     <br />
   </ng-container>
 
-  <button type="submit" id="submitBtn" *ngIf="formQuizz.valid">Submit</button>
+  <button type="submit" id="submitBtn" *ngIf="formQuiz.valid">Submit</button>
 </form>

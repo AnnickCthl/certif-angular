@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { Quizz } from '../../models/quizz';
+import { Quiz } from '../../models/quiz';
 import { Category } from '../../models/category';
 import { DataService } from '../../services/data.service';
 
@@ -12,7 +12,7 @@ import { DataService } from '../../services/data.service';
 })
 export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
   public categories$: Observable<Category[]> = this._dataService.getCategory();
-  public fiveQuestionQuizz: Quizz[] = [];
+  public fiveQuestionQuiz: Quiz[] = [];
 
   public form: FormGroup = new FormGroup({
     category: new FormControl(null, Validators.required),
@@ -32,10 +32,10 @@ export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
 
   public onClickSubmit(category: string, difficulty: string) {
     this._dataService
-      .getQuizzTest(category, difficulty.toLocaleLowerCase())
+      .getQuizTest(category, difficulty.toLocaleLowerCase())
       .pipe(takeUntil(this._destroy$))
-      .subscribe((quizz: Quizz[]) => {
-        this.fiveQuestionQuizz = quizz;
+      .subscribe((quiz: Quiz[]) => {
+        this.fiveQuestionQuiz = quiz;
       });
   }
 }

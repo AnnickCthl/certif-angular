@@ -2,8 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { Category } from '../models/category';
-import { Quizz } from '../models/quizz';
-import { RawQuizz } from '../models/raw/raw-quizz';
+import { Quiz, RawQuiz } from '../models/quiz';
 
 export type GenericObject<T> = { [key: string]: T };
 
@@ -33,38 +32,27 @@ export class DataService {
     );
   }
 
-  public getQuizzTest(
+  public getQuizTest(
     category: string,
     difficulty: string
-  ): Observable<Quizz[]> {
-    const quizzUrl: string =
+  ): Observable<Quiz[]> {
+    const quizUrl: string =
       this.BASE_URL +
       'api.php?amount=5&category=' +
       category +
       '&difficulty=' +
       difficulty +
       '&type=multiple';
-    console.log(quizzUrl);
+    console.log(quizUrl);
 
-    return this._httpClient.get<GenericObject<RawQuizz[]>>(quizzUrl).pipe(
-      map((response: GenericObject<RawQuizz[]>) => {
+    return this._httpClient.get<GenericObject<RawQuiz[]>>(quizUrl).pipe(
+      map((response: GenericObject<RawQuiz[]>) => {
         if (response && response['results']) {
-          const results = response['results'] as RawQuizz[];
-          const mapped: Quizz[] = [];
+          const results = response['results'] as RawQuiz[];
+          const mapped: Quiz[] = [];
 
-          // results.forEach((quizz: RawQuizz) => {
-          //   mapped.push({
-          //     correctAnswer: quizz.correct_answer,
-          //     question: quizz.question,
-          //     allAnswers: this._shuffleArray([
-          //       ...quizz.incorrect_answers,
-          //       quizz.correct_answer,
-          //     ]),
-          //   });
-          // });
-
-          results.forEach((quizz: RawQuizz) => {
-            mapped.push(new Quizz(quizz));
+          results.forEach((quiz: RawQuiz) => {
+            mapped.push(new Quiz(quiz));
           });
 
           return mapped;

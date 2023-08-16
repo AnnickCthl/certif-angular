@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChooseCategoryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-category-and-difficulty.component';
-import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/five-questions-quizz.component';
+import { FiveQuestionsQuizComponent } from './components/five-questions-quiz/five-questions-quiz.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './components/results/results.component';
 import { PipesModule } from './pipes/pipes.module';
@@ -27,7 +27,7 @@ import { PipesModule } from './pipes/pipes.module';
     // Components
     AppComponent,
     ChooseCategoryAndDifficultyComponent,
-    FiveQuestionsQuizzComponent,
+    FiveQuestionsQuizComponent,
     ResultsComponent,
   ],
   bootstrap: [AppComponent],

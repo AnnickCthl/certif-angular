@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Quizz } from '../../models/quizz';
+import { Quiz } from '../../models/quiz';
 
 @Component({
   selector: 'app-results',
@@ -8,12 +8,12 @@ import { Quizz } from '../../models/quizz';
   styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent {
-  answeredFrom: Quizz[] = [];
+  answeredFrom: Quiz[] = [];
   userAnswers: string[] = [];
 
   constructor(private _router: Router) {
     const data = this._router.getCurrentNavigation()?.extras.state;
-    this.answeredFrom = Object.values(data?.quizz);
+    this.answeredFrom = Object.values(data?.quiz);
     this.userAnswers = Object.values(data?.answers);
   }
 
