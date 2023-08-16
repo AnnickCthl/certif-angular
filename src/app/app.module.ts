@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChooseCateroryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-caterory-and-difficulty.component';
+import { ChooseCategoryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-category-and-difficulty.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { ChooseCateroryAndDifficultyComponent } from './components/choose-catego
   declarations: [
     // Components
     AppComponent,
-    ChooseCateroryAndDifficultyComponent,
+    ChooseCategoryAndDifficultyComponent,
   ],
   bootstrap: [AppComponent],
 })
