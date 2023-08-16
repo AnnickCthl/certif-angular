@@ -9,7 +9,6 @@ import { Quizz } from '../../models/quizz';
   styleUrls: ['./five-questions-quizz.component.css'],
 })
 export class FiveQuestionsQuizzComponent implements OnInit {
-  //TODO Highlight
   @Input() public fiveQuestionQuizz: Quizz[] = [];
 
   public formQuizz: FormGroup = new FormGroup({});
