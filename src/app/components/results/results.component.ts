@@ -8,22 +8,22 @@ import { Quiz } from '../../models/quiz';
   styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent {
-  answeredFrom: Quiz[] = [];
-  userAnswers: string[] = [];
+  public answeredFrom: Quiz[] = [];
+  public userAnswers: string[] = [];
 
-  constructor(private _router: Router) {
+  public constructor(private _router: Router) {
     const data = this._router.getCurrentNavigation()?.extras.state;
     this.answeredFrom = Object.values(data?.quiz);
     this.userAnswers = Object.values(data?.answers);
   }
 
-  getNumberOfCorrectAwswers(): number {
+  public getNumberOfCorrectAwswers(): number {
     return this.userAnswers.filter((ans: string, index: number) => {
       return ans === this.answeredFrom[index].correctAnswer;
     }).length;
   }
 
-  onNavBack(): void {
+  public onNavBack(): void {
     this._router.navigate(['']);
   }
 }

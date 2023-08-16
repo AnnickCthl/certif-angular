@@ -29,7 +29,7 @@ export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
     this._destroy$.complete();
   }
 
-  public onClickSubmit(category: string, difficulty: string) {
+  public onClickSubmit(category: string, difficulty: string): void {
     this._dataService
       .getQuizTest(category, difficulty.toLocaleLowerCase())
       .pipe(takeUntil(this._destroy$))
