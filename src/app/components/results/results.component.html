@@ -4,12 +4,12 @@
   <div class="form-group">
     <label for="{{ question.question }}">{{ question.question }}</label>
     <br />
-    <ng-container *ngFor="let answer of question.all_answers">
+    <ng-container *ngFor="let answer of question.allAnswers">
       <br />
       <button
         type="button"
         class="{{
-          answer | buttonClicked: question.correct_answer:userAnswers[index]
+          answer | answerColor: question.correctAnswer:userAnswers[index]
         }}"
       >
         {{ answer }}

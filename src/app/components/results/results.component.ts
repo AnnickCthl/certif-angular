@@ -19,7 +19,7 @@ export class ResultsComponent {
 
   getNumberOfCorrectAwswers(): number {
     return this.userAnswers.filter((ans: string, index: number) => {
-      return ans === this.answeredFrom[index].correct_answer;
+      return ans === this.answeredFrom[index].correctAnswer;
     }).length;
   }
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { ButtonClickedPipe } from './button-clicked.pipe';
+import { AnswerColorPipe } from './answer-color.pipe';
 import { ColorPipe } from './color.pipe';
 import { ToTextPipe } from './to-text.pipe';
 
 @NgModule({
-  exports: [ButtonClickedPipe, ColorPipe, ToTextPipe],
-  declarations: [ButtonClickedPipe, ColorPipe, ToTextPipe],
+  exports: [AnswerColorPipe, ColorPipe, ToTextPipe],
+  declarations: [AnswerColorPipe, ColorPipe, ToTextPipe],
 })
 export class PipesModule {}

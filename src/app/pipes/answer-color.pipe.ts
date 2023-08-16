@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 // Todo rename
 @Pipe({
-  name: 'buttonClicked',
+  name: 'answerColor',
 })
-export class ButtonClickedPipe implements PipeTransform {
+export class AnswerColorPipe implements PipeTransform {
   transform(answer: string, correctAnswer: string, userAnswer: string): string {
     if (answer === correctAnswer) {
       return 'green-color';
