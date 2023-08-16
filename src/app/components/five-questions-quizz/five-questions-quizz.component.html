@@ -14,7 +14,9 @@
         <button
           type="button"
           (click)="onAnwserClick(answer, index)"
-          class="{{ isSelected(answer, index) ? 'select-color' : '' }}"
+          class="{{
+            isSelected(answer, index) ? 'select-color' : ''
+          }} hover-color"
         >
           {{ answer | toText }}
         </button>

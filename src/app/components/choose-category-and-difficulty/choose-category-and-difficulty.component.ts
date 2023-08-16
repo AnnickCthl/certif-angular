@@ -11,6 +11,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./choose-category-and-difficulty.component.css'],
 })
 export class ChooseCategoryAndDifficultyComponent implements OnDestroy {
+  // TODO les id
   public categories$: Observable<Category[]> = this._dataService.getCategory();
   public fiveQuestionQuizz: Quizz[] = [];
 

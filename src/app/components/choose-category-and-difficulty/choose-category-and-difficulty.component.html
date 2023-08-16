@@ -7,11 +7,12 @@
   "
 >
   <div class="form-group">
-    <label for="categorySelect">Select Category</label>
+    <label for="categorySelectRef">Select Category</label>
     <br />
     <select
       class="form-control"
-      #categorySelect
+      #categorySelectRef
+      id="categorySelect"
       formControlName="category"
       required
     >
@@ -22,11 +23,12 @@
   </div>
 
   <div class="form-group">
-    <label for="difficultySelect">Select Difficulty</label>
+    <label for="difficultySelectRef">Select Difficulty</label>
     <br />
     <select
       class="form-control"
-      #difficultySelect
+      #difficultySelectRef
+      id="difficultySelect"
       formControlName="difficulty"
       required
     >
@@ -36,7 +38,7 @@
     </select>
   </div>
   <br />
-  <button type="submit" #createBtn [disabled]="!form.valid">Create</button>
+  <button type="submit" id="createBtn" [disabled]="!form.valid">Create</button>
 </form>
 
 <app-five-questions-quizz
