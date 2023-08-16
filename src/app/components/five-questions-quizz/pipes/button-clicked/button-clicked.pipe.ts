@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
   name: 'buttonClicked',
 })
 export class ButtonClickedPipe implements PipeTransform {
-  transform(answer: string, question: string, formQuizz: FormGroup): string {
+  transform(answer: string, question: number, formQuizz: FormGroup): string {
     debugger;
     return 'select-color';
   }

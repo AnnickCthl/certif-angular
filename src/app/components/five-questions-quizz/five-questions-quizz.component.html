@@ -6,7 +6,7 @@
       <label for="{{ question.question }}">{{ question.question }}</label>
       <br />
 
-      <input matInput formControlName="{{ index }}" />
+      <input matInput formControlName="{{ index | toString }}" />
       <ng-container *ngFor="let answer of question.all_answers">
         <!-- <select
           class="form-control"
@@ -20,7 +20,7 @@
         <br />
         <button
           (click)="onAnwserClick(answer, index)"
-          class="{{ answer | buttonClicked: formQuizz }}"
+          class="{{ answer | buttonClicked: index:formQuizz }}"
         >
           {{ answer }}
         </button>

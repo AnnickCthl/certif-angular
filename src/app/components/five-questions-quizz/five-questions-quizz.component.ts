@@ -28,11 +28,8 @@ export class FiveQuestionsQuizzComponent implements OnInit {
     // TODO
   }
 
-  onAnwserClick(answer: string, question: Quizz) {
-    console.log(question);
-    console.log(answer);
-
-    this.formQuizz.get(question.question)?.patchValue(answer);
+  onAnwserClick(answer: string, index: number) {
+    this.formQuizz.get(index.toString())?.patchValue(answer);
     console.log(this.formQuizz);
     // if (
     //   attribute.name &&
