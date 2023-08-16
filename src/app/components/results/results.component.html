@@ -1,3 +1,15 @@
-<p>
-results works!
-</p>
+<br />
+
+<ng-container *ngFor="let question of answeredFrom; let index = index">
+  <div class="form-group">
+    <label for="{{ question.question }}">{{ question.question }}</label>
+    <br />
+    <ng-container *ngFor="let answer of question.all_answers">
+      <br />
+      <button type="button" class="select-color">
+        {{ answer }}
+      </button>
+    </ng-container>
+  </div>
+  <br />
+</ng-container>

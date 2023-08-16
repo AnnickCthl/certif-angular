@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Quizz } from '../../models/quizz';
 
 @Component({
   selector: 'app-results',
@@ -7,13 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent implements OnInit {
-  constructor(private _route: ActivatedRoute, private _router: Router) {}
+  answeredFrom: Quizz[] = [];
+  answers: string[] = [];
 
-  ngOnInit() {
-    const state = this._route.snapshot.data;
+  constructor(private _router: Router) {
     const pouet = this._router.getCurrentNavigation()?.extras.state;
-    console.log(this._route);
-    console.log(state);
+    this.answeredFrom = pouet?.quizz;
+    this.answers = pouet?.answers;
     console.log(pouet);
   }
+
+  ngOnInit() {}
 }

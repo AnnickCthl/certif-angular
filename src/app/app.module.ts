@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChooseCategoryAndDifficultyComponent } from './components/choose-category-and-difficulty/choose-category-and-difficulty.component';
 import { FiveQuestionsQuizzComponent } from './components/five-questions-quizz/five-questions-quizz.component';
-import { ToStringPipeModule } from './components/five-questions-quizz/pipes/to-string/to-string.module';
-import { ButtonClickedPipeModule } from './components/five-questions-quizz/pipes/button-clicked/button-clicked.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ResultsComponent } from './components/results/results.component';
+import { ButtonClickedPipeModule } from './pipes/button-clicked/button-clicked.module';
+import { ToStringPipeModule } from './pipes/to-string/to-string.module';
 
 @NgModule({
   imports: [

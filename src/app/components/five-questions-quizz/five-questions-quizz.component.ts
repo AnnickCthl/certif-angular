@@ -29,6 +29,10 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   }
 
   onClickSubmit(formQuizz: FormGroup) {
+    const coucou = formQuizz.getRawValue();
+
+    console.log(coucou);
+
     const state = {
       quizz: this.fiveQuestionQuizz,
       answers: formQuizz.getRawValue(),
