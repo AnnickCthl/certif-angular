@@ -35,7 +35,7 @@ export class FiveQuestionsQuizComponent {
 
   public constructor(private _router: Router) {}
 
-  public onClickSubmit(formQuiz: FormGroup) {
+  public onClickSubmit(formQuiz: FormGroup): void {
     this._router.navigateByUrl('/results', {
       state: {
         quiz: this.fiveQuestionQuiz,
@@ -44,7 +44,7 @@ export class FiveQuestionsQuizComponent {
     });
   }
 
-  public onAnwserClick(answer: string, index: number) {
+  public onAnwserClick(answer: string, index: number): void {
     this.formQuiz.get(index.toString())?.patchValue(answer);
   }
 
