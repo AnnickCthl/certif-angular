@@ -6,10 +6,19 @@
     <br />
     <ng-container *ngFor="let answer of question.all_answers">
       <br />
-      <button type="button" class="select-color">
+      <button
+        type="button"
+        class="{{
+          answer | buttonClicked: question.correct_answer:userAnswers[index]
+        }}"
+      >
         {{ answer }}
       </button>
     </ng-container>
   </div>
   <br />
 </ng-container>
+
+<p>
+  {{}}
+</p>

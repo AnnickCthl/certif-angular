@@ -9,13 +9,22 @@ import { Quizz } from '../../models/quizz';
 })
 export class ResultsComponent implements OnInit {
   answeredFrom: Quizz[] = [];
-  answers: string[] = [];
+  userAnswers: string[] = [];
 
   constructor(private _router: Router) {
     const pouet = this._router.getCurrentNavigation()?.extras.state;
     this.answeredFrom = pouet?.quizz;
-    this.answers = pouet?.answers;
+    this.userAnswers = pouet?.answers;
     console.log(pouet);
+
+    this.userAnswers.filter(
+      (ans, index) => ans === this.answeredFrom[index].correct_answer
+    );
+    console.log(
+      this.userAnswers.filter(
+        (ans, index) => ans === this.answeredFrom[index].correct_answer
+      )
+    );
   }
 
   ngOnInit() {}
