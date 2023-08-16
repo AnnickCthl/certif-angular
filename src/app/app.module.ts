@@ -24,7 +24,6 @@ import { PipesModule } from './pipes/pipes.module';
     AppRoutingModule,
   ],
   declarations: [
-    // Components
     AppComponent,
     ChooseCategoryAndDifficultyComponent,
     FiveQuestionsQuizComponent,

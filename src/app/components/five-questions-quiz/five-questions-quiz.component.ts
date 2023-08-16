@@ -17,6 +17,7 @@ export class FiveQuestionsQuizComponent {
     if (value) {
       this._fiveQuestionQuiz = value;
 
+      // On refresh complètement le form en cas de nouvelles questions.
       this.formQuiz = new FormGroup({});
       this.fiveQuestionQuiz.forEach((quiz, index) => {
         this.formQuiz.addControl(

@@ -40,7 +40,6 @@ export class DataService {
       '&difficulty=' +
       difficulty +
       '&type=multiple';
-    console.log(quizUrl);
 
     return this._httpClient.get<GenericObject<RawQuiz[]>>(quizUrl).pipe(
       map((response: GenericObject<RawQuiz[]>) => {
