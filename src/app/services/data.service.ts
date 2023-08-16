@@ -19,7 +19,7 @@ export class DataService {
     const categoryUrl: string = this.BASE_URL + 'api_category.php';
 
     return this._httpClient.get<GenericObject<Category[]>>(categoryUrl).pipe(
-      map((response) => {
+      map((response: GenericObject<Category[]>) => {
         if (response && response['trivia_categories']) {
           return response['trivia_categories'];
         }
@@ -47,20 +47,24 @@ export class DataService {
     console.log(quizzUrl);
 
     return this._httpClient.get<GenericObject<RawQuizz[]>>(quizzUrl).pipe(
-      map((response) => {
+      map((response: GenericObject<RawQuizz[]>) => {
         if (response && response['results']) {
           const results = response['results'] as RawQuizz[];
           const mapped: Quizz[] = [];
 
+          // results.forEach((quizz: RawQuizz) => {
+          //   mapped.push({
+          //     correctAnswer: quizz.correct_answer,
+          //     question: quizz.question,
+          //     allAnswers: this._shuffleArray([
+          //       ...quizz.incorrect_answers,
+          //       quizz.correct_answer,
+          //     ]),
+          //   });
+          // });
+
           results.forEach((quizz: RawQuizz) => {
-            mapped.push({
-              correctAnswer: quizz.correct_answer,
-              question: quizz.question,
-              allAnswers: this._shuffleArray([
-                ...quizz.incorrect_answers,
-                quizz.correct_answer,
-              ]),
-            });
+            mapped.push(new Quizz(quizz));
           });
 
           return mapped;
