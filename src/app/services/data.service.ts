@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 import { Category } from '../models/category';
 import { Quizz } from '../models/quizz';
 
@@ -33,25 +33,32 @@ export class DataService {
     );
   }
 
-  getFiveQuizzTest(category: string, difficulty: string): Observable<Quizz[]> {
+  public getFiveQuizzTest(/*category: string, difficulty: string*/): Observable<
+    Quizz[]
+  > {
     const quizzUrl: string =
       this.BASE_URL +
-      'api.php%3Famount=5%26category=11%26difficulty=easy%26type=multiple';
-    // 'api.php?amount=5&category=11&difficulty=easy&type=multiple';
+      'api.php?amount=5&category=11&difficulty=easy&type=multiple';
+    console.log(quizzUrl);
 
-    return this._httpClient
-      .get<any>(quizzUrl) // TODO Enveler "any"
-      .pipe(
-        map((obj) => {
-          console.log(obj);
+    return (
+      this._httpClient
+        // .get<any>(quizzUrl) // TODO Enveler "any"
+        .get<any>(
+          'https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple'
+        )
+        .pipe(
+          map((obj) => {
+            console.log(obj);
 
-          return [];
-        }),
-        catchError((error: HttpErrorResponse) => {
-          console.error(error);
-          return [];
-        })
-      );
+            return [];
+          }),
+          catchError((error: HttpErrorResponse) => {
+            console.error(error);
+            return [];
+          })
+        )
+    );
 
     // https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple
   }

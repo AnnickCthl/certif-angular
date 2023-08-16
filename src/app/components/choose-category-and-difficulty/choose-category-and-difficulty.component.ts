@@ -27,6 +27,6 @@ export class ChooseCategoryAndDifficultyComponent implements OnInit {
 
   onClickSubmit(category: string, difficulty: string) {
     // TODO Validators
-    this._dataService.getFiveQuizzTest(category, difficulty);
+    this._dataService.getFiveQuizzTest();
   }
 }
