@@ -1,21 +1,19 @@
 <br />
-
-    <label for="{{ question.question }}">{{
-      question.question | toText
-    }}</label>
+<ng-container *ngFor="let question of answeredFrom; let index = index">
+  <label for="{{ question.question }}">{{ question.question | toText }}</label>
+  <br />
+  <ng-container *ngFor="let answer of question.allAnswers">
     <br />
-    <ng-container *ngFor="let answer of question.allAnswers">
-      <br />
-      <button
-        disabled
-        type="button"
-        class="{{
-          answer | answerColor: question.correctAnswer:userAnswers[index]
-        }} black-text"
-      >
-        {{ answer | toText }}
-      </button>
-    </ng-container>
+    <button
+      disabled
+      type="button"
+      class="{{
+        answer | answerColor: question.correctAnswer:userAnswers[index]
+      }} black-text"
+    >
+      {{ answer | toText }}
+    </button>
+  </ng-container>
 
   <br />
 </ng-container>

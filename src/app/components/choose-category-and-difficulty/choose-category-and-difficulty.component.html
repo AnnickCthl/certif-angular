@@ -1,44 +1,49 @@
-<form
-  #typeOfForm
-  [formGroup]="form"
-  *ngIf="categories$ | async as categories"
-  (ngSubmit)="
-    onClickSubmit(form.get('category')?.value, form.get('difficulty')?.value)
-  "
->
-  <label for="categorySelectRef">Select Category</label>
-  <br />
-  <select
-    class="form-control"
-    #categorySelectRef
-    id="categorySelect"
-    formControlName="category"
-    required
+<ng-container *ngIf="categories$ | async as categories">
+  <h1>Quizz Maker</h1>
+  <form
+    #typeOfForm
+    [formGroup]="form"
+    (ngSubmit)="
+      onClickSubmit(form.get('category')?.value, form.get('difficulty')?.value)
+    "
   >
-    <option *ngFor="let category of categories" [value]="category.id">
-      {{ category.name | toText }}
-    </option>
-  </select>
+    <label for="categorySelectRef">Select Category</label>
+    <br />
+    <select
+      class="form-control"
+      #categorySelectRef
+      id="categorySelect"
+      formControlName="category"
+      required
+    >
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name | toText }}
+      </option>
+    </select>
+    <br />
+    <label for="difficultySelectRef">Select Difficulty</label>
+    <br />
+    <select
+      class="form-control"
+      #difficultySelectRef
+      id="difficultySelect"
+      formControlName="difficulty"
+      required
+    >
+      <option *ngFor="let difficulty of DIFFICULTY_LEVELS" [value]="difficulty">
+        {{ difficulty }}
+      </option>
+    </select>
 
-  <label for="difficultySelectRef">Select Difficulty</label>
-  <br />
-  <select
-    class="form-control"
-    #difficultySelectRef
-    id="difficultySelect"
-    formControlName="difficulty"
-    required
-  >
-    <option *ngFor="let difficulty of DIFFICULTY_LEVELS" [value]="difficulty">
-      {{ difficulty }}
-    </option>
-  </select>
+    <br />
+    <br />
+    <button type="submit" id="createBtn" [disabled]="!form.valid">
+      Create
+    </button>
+  </form>
 
-  <br />
-  <button type="submit" id="createBtn" [disabled]="!form.valid">Create</button>
-</form>
-
-<app-five-questions-quiz
-  *ngIf="fiveQuestionQuiz.length"
-  [fiveQuestionQuiz]="fiveQuestionQuiz"
-></app-five-questions-quiz>
+  <app-five-questions-quiz
+    *ngIf="fiveQuestionQuiz.length"
+    [fiveQuestionQuiz]="fiveQuestionQuiz"
+  ></app-five-questions-quiz>
+</ng-container>
