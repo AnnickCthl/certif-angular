@@ -30,19 +30,12 @@ export class FiveQuestionsQuizzComponent implements OnInit {
 
   onAnwserClick(answer: string, index: number) {
     this.formQuizz.get(index.toString())?.patchValue(answer);
-    console.log(this.formQuizz);
-    // if (
-    //   attribute.name &&
-    //   this.attributeForm.get(attribute.name)?.value !== attribute.value
-    // ) {
-    //   this.attributeForm.get(attribute.name)?.patchValue(attribute.value);
-    // }
   }
 
   isSelected(answer: string, index: number): boolean {
-    this.formQuizz.get(index.toString());
-
-    // return formValues[question] === answer
-    true
+    this.formQuizz.get(index.toString())?.value;
+    // debugger;
+     return this.formQuizz.get(index.toString())?.value === answer
+    // return true;
   }
 }
