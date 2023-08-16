@@ -15,14 +15,31 @@ export class FiveQuestionsQuizzComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.fiveQuestionQuizz) {
+      this.fiveQuestionQuizz.forEach((quizz) => {
+        this.formQuizz.addControl(quizz.question, new FormControl({}));
+      });
+    }
+    // Déplacer
+  }
 
   onClickSubmit(formQuizz: FormGroup) {
     // TODO
   }
 
-  onAnwserClick(event: any) {
-    console.log(event);
+  onAnwserClick(answer: string, question: Quizz) {
+    console.log(question);
+    console.log(answer);
+
+    this.formQuizz.get(question.question)?.patchValue(answer);
+    console.log(this.formQuizz);
+    // if (
+    //   attribute.name &&
+    //   this.attributeForm.get(attribute.name)?.value !== attribute.value
+    // ) {
+    //   this.attributeForm.get(attribute.name)?.patchValue(attribute.value);
+    // }
   }
 
   buildSelection(fiveQuestion: FormGroup) {}

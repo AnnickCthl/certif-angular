@@ -1,11 +1,12 @@
 <br />
 
 <form #typeOfForm [formGroup]="formQuizz" (ngSubmit)="onClickSubmit(formQuizz)">
-  <ng-container *ngFor="let question of fiveQuestionQuizz">
+  <ng-container *ngFor="let question of fiveQuestionQuizz; let index = index">
     <div class="form-group">
       <label for="{{ question.question }}">{{ question.question }}</label>
       <br />
 
+      <input matInput formControlName="{{ index }}" />
       <ng-container *ngFor="let answer of question.all_answers">
         <!-- <select
           class="form-control"
@@ -18,8 +19,8 @@
         </select> -->
         <br />
         <button
-          (click)="onAnwserClick($event)"
-          class="{{ backgroundButtonColor | buttonClicked }}"
+          (click)="onAnwserClick(answer, index)"
+          class="{{ answer | buttonClicked: formQuizz }}"
         >
           {{ answer }}
         </button>
