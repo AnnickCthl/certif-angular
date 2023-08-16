@@ -32,10 +32,7 @@ export class DataService {
     );
   }
 
-  public getQuizTest(
-    category: string,
-    difficulty: string
-  ): Observable<Quiz[]> {
+  public getQuizTest(category: string, difficulty: string): Observable<Quiz[]> {
     const quizUrl: string =
       this.BASE_URL +
       'api.php?amount=5&category=' +
@@ -64,13 +61,5 @@ export class DataService {
         return [];
       })
     );
-  }
-
-  private _shuffleArray(array: string[]): string[] {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
   }
 }

@@ -12,11 +12,11 @@ export class Quiz {
   allAnswers: string[] = [];
 
   public constructor(src: RawQuiz) {
-    (this.correctAnswer = src.correct_answer),
-      (this.question = src.question),
-      (this.allAnswers = Utils.shuffleArray([
-        ...src.incorrect_answers,
-        src.correct_answer,
-      ]));
+    this.correctAnswer = src.correct_answer;
+    this.question = src.question;
+    this.allAnswers = Utils.shuffleArray([
+      ...src.incorrect_answers,
+      src.correct_answer,
+    ]);
   }
 }
