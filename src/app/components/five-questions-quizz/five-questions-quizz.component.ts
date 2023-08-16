@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Quizz } from '../../models/quizz';
 
 @Component({
@@ -13,7 +14,7 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   formQuizz: FormGroup = new FormGroup({});
   backgroundButtonColor: string = '';
 
-  constructor() {}
+  constructor(private _router: Router) {}
 
   ngOnInit() {
     if (this.fiveQuestionQuizz) {
@@ -28,6 +29,7 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   }
 
   onClickSubmit(formQuizz: FormGroup) {
+    this._router.navigate(['results']);
     // TODO
   }
 
@@ -41,3 +43,4 @@ export class FiveQuestionsQuizzComponent implements OnInit {
 }
 
 // TODO Cacher l'input
+// Encodage des réponses
