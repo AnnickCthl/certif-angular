@@ -37,7 +37,7 @@ export class ChooseCategoryAndDifficultyComponent implements OnInit, OnDestroy {
   onClickSubmit(category: string, difficulty: string) {
     // TODO Validators
     this._dataService
-      .getFiveQuizzTest(category, difficulty.toLocaleLowerCase())
+      .getQuizzTest(category, difficulty.toLocaleLowerCase())
       .pipe(takeUntil(this._destroy$))
       .subscribe((quizz: Quizz[]) => {
         this.fiveQuestionQuizz = quizz;
