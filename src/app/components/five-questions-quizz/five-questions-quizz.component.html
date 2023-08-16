@@ -17,7 +17,12 @@
           </option> 
         </select> -->
         <br />
-        <button>{{ answer }}</button>
+        <button
+          (click)="onAnwserClick($event)"
+          class="{{ backgroundButtonColor | buttonClicked }}"
+        >
+          {{ answer }}
+        </button>
       </ng-container>
     </div>
     <br />

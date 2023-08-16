@@ -11,6 +11,7 @@ export class FiveQuestionsQuizzComponent implements OnInit {
   @Input() public fiveQuestionQuizz: Quizz[] = [];
 
   formQuizz: FormGroup = new FormGroup({});
+  backgroundButtonColor: string = '';
 
   constructor() {}
 
@@ -18,6 +19,10 @@ export class FiveQuestionsQuizzComponent implements OnInit {
 
   onClickSubmit(formQuizz: FormGroup) {
     // TODO
+  }
+
+  onAnwserClick(event: any) {
+    console.log(event);
   }
 
   buildSelection(fiveQuestion: FormGroup) {}
