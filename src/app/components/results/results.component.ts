@@ -17,14 +17,14 @@ export class ResultsComponent implements OnInit {
     this.userAnswers = pouet?.answers;
     console.log(pouet);
 
-    this.userAnswers.filter(
-      (ans, index) => ans === this.answeredFrom[index].correct_answer
-    );
-    console.log(
-      this.userAnswers.filter(
-        (ans, index) => ans === this.answeredFrom[index].correct_answer
-      )
-    );
+    // this.userAnswers.filter(
+    //   (ans, index) => ans === this.answeredFrom[index].correct_answer
+    // );
+    // console.log(
+    //   this.userAnswers.filter(
+    //     (ans, index) => ans === this.answeredFrom[index].correct_answer
+    //   )
+    // );
   }
 
   ngOnInit() {}
