@@ -3,7 +3,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'answerColor',
 })
-// TODO Directive
 export class AnswerColorPipe implements PipeTransform {
   public transform(
     answer: string,
